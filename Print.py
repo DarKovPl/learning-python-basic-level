@@ -22,4 +22,4 @@ print("I like computers but better is {} but better is {} "
 
 itemAndTime = {"News", "18:00"}
 print("I like watching {} at {} on {}.".format(*itemAndTime,
-                                              *listOfTvPrograms[4:]))
+                                               *listOfTvPrograms[4:]))
