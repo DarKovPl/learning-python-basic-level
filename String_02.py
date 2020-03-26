@@ -18,13 +18,14 @@ print(justText_4)
 line = 'He said "I like Python!"'
 print(line)
 
-
 # Laboratory
 firstName = 'Kasia '
 familyName = 'Sowa '
 lastName = 'Mrugała'
 newName = firstName + familyName + lastName
 print(newName)
+newName_01 = firstName + " " + familyName + " " + lastName
+print(newName_01)
 
 music = '''"Universal Fanfare" Jerry Goldsmith "Happy Together" 
             Garry Bonner "I'm a Man" Steve Winwood'''
