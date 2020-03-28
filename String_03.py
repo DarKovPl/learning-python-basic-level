@@ -45,4 +45,4 @@ print('-------------------------------------------------------------------')
 valueAsText = '123.45'
 factor = 1.23
 print('Value is ' + valueAsText + ' factor is ' + str(factor)
-      + ' Value * Factor =', float(valueAsText) * factor)
+      + '. Value * Factor =', float(valueAsText) * factor)
