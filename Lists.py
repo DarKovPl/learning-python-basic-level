@@ -42,3 +42,34 @@ print(countries)
 print(countriesCopy)
 
 # Laboratory
+
+hitsTitle = ['BROTHERS IN ARMS;', 'BOHEMIAN RHAPSODY;', 'STAIRWAY TO HEAVEN;',
+             'RIDERS ON THE STORM;', 'WISH YOU WERE HERE;']
+print(*hitsTitle[:3], '\n', *hitsTitle[3:],
+      'Total songs:', len(hitsTitle))
+
+print('-----------------------------------------------------------')
+hitsTitle.append('CHILD IN TIME;')
+hitsTitle.append('AGAIN;')
+print(*hitsTitle[:3], '\n', *hitsTitle[3:],
+      'Total songs:', len(hitsTitle))
+
+print('----------------------------------------------------------')
+hitsTitle.insert(3, 'HOTEL CALIFORNIA;')
+print(*hitsTitle[:3], '\n', *hitsTitle[3:6],
+      '\n', *hitsTitle[6:], 'Total songs:',  len(hitsTitle))
+
+print('----------------------------------------------------------')
+hitsTitle.insert(0, 'THE SOUND OF SILENCE;')
+print(*hitsTitle[:3], '\n', *hitsTitle[3:6], '\n',
+      *hitsTitle[6:], 'Total songs:', len(hitsTitle))
+
+print('----------------------------------------------------------')
+print(hitsTitle.index('HOTEL CALIFORNIA;'))
+
+print('----------------------------------------------------------')
+hitsTitle.remove('HOTEL CALIFORNIA;')
+print(*hitsTitle[:3], '\n', *hitsTitle[3:6], '\n',
+      *hitsTitle[6:], 'Total songs:', len(hitsTitle))
+
+print('----------------------------------------------------------')
