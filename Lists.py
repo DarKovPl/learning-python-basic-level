@@ -73,3 +73,38 @@ print(*hitsTitle[:3], '\n', *hitsTitle[3:6], '\n',
       *hitsTitle[6:], 'Total songs:', len(hitsTitle))
 
 print('----------------------------------------------------------')
+hitsTitle.remove('THE SOUND OF SILENCE;')
+hitsTitle.insert(0, 'ENJOY THE SILENCE;')
+print(*hitsTitle[:3], '\n', *hitsTitle[3:6], '\n',
+      *hitsTitle[6:], 'Total songs:', len(hitsTitle))
+
+print('----------------------------------------------------------')
+hitsToRead = hitsTitle.copy()
+hitsToRead.reverse()
+print(*hitsToRead[:3], '\n', *hitsToRead[3:6], '\n',
+      *hitsToRead[6:], 'Total songs:', len(hitsToRead))
+
+print('----------------------------------------------------------')
+hitsToRead.sort()
+print(*hitsToRead[:3], '\n', *hitsToRead[3:6], '\n',
+      *hitsToRead[6:], 'Total songs:', len(hitsToRead))
+
+print('----------------------------------------------------------')
+hitsToRead.pop(0)
+hitsToRead.pop(0)
+print(*hitsToRead[:3], '\n', *hitsToRead[3:6], '\n',
+      *hitsToRead[6:], 'Total songs:', len(hitsToRead))
+
+print('----------------------------------------------------------')
+additionalSongs = [ 'NOTHING COMPARES 2 U;', 'WISH YOU WERE HERE;']
+hitsToRead.extend(additionalSongs)
+print(*hitsToRead[:3], '\n', *hitsToRead[3:6], '\n',
+      *hitsToRead[6:], 'Total songs:', len(hitsToRead))
+
+print('----------------------------------------------------------')
+print(hitsToRead.count('WISH YOU WERE HERE;'))
+print(hitsToRead.count('RIDERS ON THE STORM;'))
+
+print('----------------------------------------------------------')
+hitsToRead.clear()
+print(hitsToRead)
