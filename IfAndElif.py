@@ -22,25 +22,81 @@ elif isRestrictedArea:
 else:
     print('Okay, you can buy alcohol')
 
-#  Laboratory  <<<<< do zrobienia
-shares = 101
+#  Laboratory  <<<<< to do
+print('Laboratory-----------------------------------------------')
+shares = 100
 likes = 500
 
-if likes >= 501 and shares >= 101:
-    print('Likes are {0:d}. Shares are {1:d}. We have for '
-          'you special offer as 10 percent discount.'
-          .format(likes, shares))
+if likes >= 500 and shares >= 100:
+    print('Likes are {0:d}, and shares are {1:d}. W start selling'
+          ' everything 10% cheaper'.format(likes, shares))
 else:
-    if likes <= 499 and shares <= 99:
-        print('Special offer starts when shares cross 99 and'
-              ' likes will be above 499. Currently likes: {0:d} '
-              'and shares: {1:d}')
+    if likes < 500 and shares >= 100:
+        print('Likes are {0:d}. There are too low likes, but'
+              ' shares are {1:d}, and there are enough.'
+              .format(likes, shares))
     else:
-        if likes == 500:
-            print('Likes are exactly 500 and we start '
-                  'with 10 % discount if shares cross 100')
+        if likes >= 500 and shares < 100:
+            print('Shares are {0:d}. There are too low shares, but'
+                  ' likes are {1:d}, and there are enough.'
+                  .format(shares, likes))
         else:
-            if shares == 100:
-                print('Shares are exactly 100 and we will sell'
-                      ' everything with 10% off but likes must across'
-                      ' 499 too')
+            print('Likes are {0:d}, and shares are {1:d}, and'
+                  ' these are too low to start promotion.'
+                  .format(likes, shares))
+print('----------------------------------------------------------')
+if likes >= 500 and shares >= 100:
+    print('Likes are {0:d}, and shares are {1:d}. W start selling'
+          ' everything 10% cheaper'.format(likes, shares))
+elif likes < 500 and shares >= 100:
+    print('Likes are {0:d}. There are too low likes, but'
+          ' shares are {1:d}, and there are enough.'
+          .format(likes, shares))
+elif likes >= 500 and shares < 100:
+    print('Shares are {0:d}. There are too low shares, but'
+          ' likes are {1:d}, and there are enough.'
+          .format(shares, likes))
+else:
+    print('Likes are {0:d}, and shares are {1:d}, and'
+          ' these are too low to start promotion.'
+          .format(likes, shares))
+print('----------------------------------------------------------')
+ifPizza = False
+pizza = 'Pizza'
+
+ifBigSoftDrink = False
+bigDrink = 'Big Soft Drink'
+
+notWeekendDay = False
+dayOfTheWeek = 'weekday'
+
+reward = 'Burger'
+
+if (ifPizza or ifBigSoftDrink) and notWeekendDay:
+    print('You have from us one coupon for free %s' % reward)
+else:
+    if (not ifPizza or not ifBigSoftDrink) and notWeekendDay:
+        print("You don't have ordered %s or %s. Order something to get"
+              " a ticket for free %s" % (pizza, bigDrink, reward))
+    else:
+        if (ifPizza or ifBigSoftDrink) and not notWeekendDay:
+            print('Today is not a %s. Today is weekend and '
+                  'special offer is not available'
+                  % dayOfTheWeek)
+        else:
+            print('Order {0:s} or {1:s} but on {2:s} to get free {3:s}'
+                  .format(pizza, bigDrink, dayOfTheWeek, reward))
+print('-------------------------------------------------------------')
+
+if (ifPizza or ifBigSoftDrink) and notWeekendDay:
+    print('You have from us one coupon for free %s' % reward)
+elif (not ifPizza or not ifBigSoftDrink) and notWeekendDay:
+    print("You don't have ordered %s or %s. Order something to get"
+          " a ticket for free %s" % (pizza, bigDrink, reward))
+elif (ifPizza or ifBigSoftDrink) and not notWeekendDay:
+    print('Today is not a %s. Today is weekend and '
+          'special offer is not available'
+          % dayOfTheWeek)
+else:
+    print('Order {0:s} or {1:s} but on {2:s} to get free {3:s}'
+          .format(pizza, bigDrink, dayOfTheWeek, reward))
