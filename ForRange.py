@@ -47,3 +47,11 @@ for O in range(1, 10, 2):
 
     for X in range(1):
         print('x' * (O+1))
+print('-----------------------------------------------------------')
+
+# Rozwiązanie od Rafała z kursu do 2 Laba
+for A in range(5):
+    print(string_A, '\tMain loop: %d' % A)
+
+    if A != 4:
+        print(string_B)
