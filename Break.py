@@ -69,12 +69,60 @@ definitions = [
     'importante transmise au système de freinage pour une course de faible distance.'
 ]
 
-short_definitions = []
+appendOneDefinition = []
+dividedOneDefinition = ''
+outputList = []
 
-for defi in definitions:
+for oneDef in definitions:
 
-    short_definitions += defi.split(' ')
+    appendOneDefinition.append(oneDef)
 
-    print()
+    for toOneString in appendOneDefinition:
 
-print( short_definitions)
+        dividedOneDefinition = toOneString.split(' ')
+
+        for appendDefToList in dividedOneDefinition:
+
+            outputList.append(appendDefToList)
+
+            if len(outputList) == 20:
+                print(*outputList)
+                outputList.clear()
+                dividedOneDefinition.clear()
+                appendOneDefinition.clear()  # Ostatni kod na dole to samo co to tylko poprawione. Nie wiem, dlaczego to tak napisałem jakiś niedorozwój umysłowy chyba.
+print('-----------------------------------------------------------')
+
+for definition in definitions:
+
+    words = definition.split(' ')
+    short_text = ''
+    counter = 0
+
+    for word in words:
+
+        short_text += word + ' '
+        counter += 1
+
+        if counter >= 20:
+            print(short_text)
+            break
+
+print('-----------------------------------------------------------')
+
+dividedOneDefinition = ''
+outputList = []
+
+for oneDef in definitions:
+
+    dividedOneDefinition = oneDef.split(' ')
+
+    for appendDefToList in dividedOneDefinition:
+
+        outputList.append(appendDefToList)
+
+        if len(outputList) == 20:
+
+            print(*outputList)
+            outputList.clear()
+            dividedOneDefinition.clear()
+            appendOneDefinition.clear()
