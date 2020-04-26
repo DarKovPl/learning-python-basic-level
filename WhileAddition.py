@@ -28,3 +28,25 @@ for stringInt in integerString:
         print('Digits sum of %s number is %d' % (integerString,
                                                  sumOfDigitsInteger))
 print('-----------------------------------------------------------')
+
+number = 20730906
+additionVariable = 0
+niceOutputVariable = []
+
+while number > 0:
+
+    if number % 10:
+
+        niceOutputVariable.append(number % 10)
+        additionVariable += number % 10
+        number -= number % 10
+
+        print(number, additionVariable, niceOutputVariable)
+
+    else:
+        number = number // 10
+        print(number, niceOutputVariable)
+
+print('Digit to addition of number {0:d} are '.format(number),
+        for niceOutputString in niceOutputVariable: print('+'))
+
