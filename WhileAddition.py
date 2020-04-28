@@ -30,23 +30,53 @@ for stringInt in integerString:
 print('-----------------------------------------------------------')
 
 number = 20730906
-additionVariable = 0
-niceOutputVariable = []
+unchangedNumberToPrint = number
+result = 0
+niceOutputDigitList = []
 
 while number > 0:
 
     if number % 10:
 
-        niceOutputVariable.append(number % 10)
-        additionVariable += number % 10
+        niceOutputDigitList.append(number % 10)
+        result += number % 10
         number -= number % 10
 
-        print(number, additionVariable, niceOutputVariable)
+    else:
+
+        number = number // 10
+
+print('Digits to addition from number {0:d} are'.format(unchangedNumberToPrint),
+      '+'.join([str(digit) for digit in niceOutputDigitList]) +
+      '=' + str(result))
+print('-----------------------------------------------------------')
+
+text = '''United Space Alliance: This company provides major support to NASA for
+various projects, such as the space shuttle. One of its projects is to
+create Workflow Automation System (WAS), an application designed to
+manage NASA and other third-party projects. The setup uses a central
+Oracle database as a repository for information. Python was chosen over
+languages such as Java and C++ because it provides dynamic typing and
+pseudo-code–like syntax and it has an interpreter. The result is that
+the application is developed faster, and unit testing each piece is 
+easier.'''.replace('\n', ' ').split(' ')
+countingLengthWordsList = []
+countedLongWordsList = []
+countedShortWordsList = []
+
+while (len(text) or len(countingLengthWordsList)) > 0:
+
+    countingLengthWordsList.extend(text)
+    text.clear()
+
+    if len(countingLengthWordsList[0]) > 6:
+
+        countedLongWordsList.append(countingLengthWordsList.pop(0))
 
     else:
-        number = number // 10
-        print(number, niceOutputVariable)
 
-print('Digit to addition of number {0:d} are '.format(number),
-        for niceOutputString in niceOutputVariable: print('+'))
+        countedShortWordsList.append(countingLengthWordsList.pop(0))
+
+print('The text has %2d words longer than 6 characters.' % len(countedLongWordsList), '\n',
+      'The text has %2d words shorter than 6 characters.' % len(countedShortWordsList))
 
