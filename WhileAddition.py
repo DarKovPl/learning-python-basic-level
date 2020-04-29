@@ -31,7 +31,7 @@ print('-----------------------------------------------------------')
 
 number = 20730906
 unchangedNumberToPrint = number
-result = 0
+resultOfModulo = 0
 niceOutputDigitList = []
 
 while number > 0:
@@ -39,27 +39,30 @@ while number > 0:
     if number % 10:
 
         niceOutputDigitList.append(number % 10)
-        result += number % 10
+        resultOfModulo += number % 10
         number -= number % 10
 
     else:
 
         number = number // 10
 
-print('Digits to addition from number {0:d} are'.format(unchangedNumberToPrint),
+print('The digits along with the result of adding them from number\n'
+      ' {0:d} are:'.format(unchangedNumberToPrint),
       '+'.join([str(digit) for digit in niceOutputDigitList]) +
-      '=' + str(result))
+      '=' + str(resultOfModulo))
 print('-----------------------------------------------------------')
 
-text = '''United Space Alliance: This company provides major support to NASA for
+text = '''
+United Space Alliance: This company provides major support to NASA for
 various projects, such as the space shuttle. One of its projects is to
 create Workflow Automation System (WAS), an application designed to
 manage NASA and other third-party projects. The setup uses a central
 Oracle database as a repository for information. Python was chosen over
 languages such as Java and C++ because it provides dynamic typing and
 pseudo-code–like syntax and it has an interpreter. The result is that
-the application is developed faster, and unit testing each piece is 
-easier.'''.replace('\n', ' ').split(' ')
+the application is developed faster, and unit testing each 
+piece is easier.'''.replace('\n', ' ').split(' ')
+
 countingLengthWordsList = []
 countedLongWordsList = []
 countedShortWordsList = []
@@ -77,6 +80,7 @@ while (len(text) or len(countingLengthWordsList)) > 0:
 
         countedShortWordsList.append(countingLengthWordsList.pop(0))
 
-print('The text has %2d words longer than 6 characters.' % len(countedLongWordsList), '\n',
-      'The text has %2d words shorter than 6 characters.' % len(countedShortWordsList))
-
+print('The text has %2d words longer than 6 characters.'
+      % len(countedLongWordsList), '\n',
+      'The text has %2d words shorter than 6 characters.'
+      % len(countedShortWordsList))
