@@ -1,10 +1,10 @@
-fibonacciIterations = 10
+fibonacci = 10
 sumOfIterations = 0
 sumOfIterations2 = 1
 sumOfIterations3 = 1
 fibonacciNumbersList = []
 
-for fibIt in range(fibonacciIterations):
+for fibIt in range(fibonacci):
     fibonacciNumbersList.append(sumOfIterations2)
     fibonacciNumbersList.append(sumOfIterations3)
     sumOfIterations = sumOfIterations2 + sumOfIterations3
@@ -41,3 +41,28 @@ for word in text:
         print(counter, '\t', word)
         counter += 1
 print('-------------------------------------------------------------')
+
+dictionary = {'A': '80%-100%', 'B': '60%-80%', 'C': '50-60%',
+              'D': 'less then 50%'}
+for valueOfDict in dictionary:
+
+    dictionary = {'A': '80%-100%', 'B': '60%-80%', 'C': '50-60%',
+                  'D': 'less then 50%'}
+    print(valueOfDict, '-', dictionary.pop(valueOfDict))
+print('-------------------------------------------------------------')
+
+dictionary = {'A': '80%-100%', 'B': '60%-80%', 'C': '50-60%',
+              'D': 'less then 50%'}
+for valueOfDict in dictionary:
+    print(valueOfDict, '-', dictionary[valueOfDict])
+print('-------------------------------------------------------------')
+
+text.sort()
+listOfText = []
+
+for wordInText in text:
+
+    if text.count(wordInText) == 1:
+        listOfText.append(wordInText)
+        text.remove(wordInText)
+print(text, '\n', listOfText)
