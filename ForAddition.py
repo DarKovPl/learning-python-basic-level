@@ -45,24 +45,22 @@ print('-------------------------------------------------------------')
 dictionary = {'A': '80%-100%', 'B': '60%-80%', 'C': '50-60%',
               'D': 'less then 50%'}
 for valueOfDict in dictionary:
-
-    dictionary = {'A': '80%-100%', 'B': '60%-80%', 'C': '50-60%',
-                  'D': 'less then 50%'}
-    print(valueOfDict, '-', dictionary.pop(valueOfDict))
-print('-------------------------------------------------------------')
-
-dictionary = {'A': '80%-100%', 'B': '60%-80%', 'C': '50-60%',
-              'D': 'less then 50%'}
-for valueOfDict in dictionary:
     print(valueOfDict, '-', dictionary[valueOfDict])
 print('-------------------------------------------------------------')
 
 text.sort()
-listOfText = []
+listOfWords = []
+sumOfWords = []
 
 for wordInText in text:
 
-    if text.count(wordInText) == 1:
-        listOfText.append(wordInText)
-        text.remove(wordInText)
-print(text, '\n', listOfText)
+    sumOfWords.append(text.count(wordInText))
+    listOfWords.append(wordInText)
+
+    if len(text) == len(listOfWords):
+
+        outputText = '{}: '.join([str(digit) for digit in sumOfWords])\
+            .format(*listOfWords)
+
+
+print(outputText)
