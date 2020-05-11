@@ -60,9 +60,9 @@ manage NASA and other third-party projects. The setup uses a central
 Oracle database as a repository for information. Python was chosen over
 languages such as Java and C++ because it provides dynamic typing and
 pseudo-code–like syntax and it has an interpreter. The result is that
-the application is developed faster, and unit testing each 
-piece is easier.'''.replace('\n', ' ').split(' ')
-
+the application is developed faster, and unit testing each piece is easier.
+'''.replace('\n', ' ').split(' ')
+textCopy = text.copy()
 countingLengthWordsList = []
 countedLongWordsList = []
 countedShortWordsList = []
@@ -76,11 +76,14 @@ while (len(text) or len(countingLengthWordsList)) > 0:
 
         countedLongWordsList.append(countingLengthWordsList.pop(0))
 
-    else:
+    elif 0 < len(countingLengthWordsList[0]) <= 6:
 
         countedShortWordsList.append(countingLengthWordsList.pop(0))
+
+    else:
+        countingLengthWordsList.pop(0)
 
 print('The text has %2d words longer than 6 characters.'
       % len(countedLongWordsList), '\n',
       'The text has %2d words shorter than 6 characters.'
-      % len(countedShortWordsList))
+      % len(countedShortWordsList), textCopy)

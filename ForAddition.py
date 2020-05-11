@@ -49,18 +49,31 @@ for valueOfDict in dictionary:
 print('-------------------------------------------------------------')
 
 text.sort()
-listOfWords = []
-sumOfWords = []
+countingWordsDictionary = {}
+countedWordsDictionary = {}
+countedWordsDictionary1 = {}
+counter = 1
+lastKey = 0
 
-for wordInText in text:
+for keyOfDicts in range(1, len(text)):
 
-    sumOfWords.append(text.count(wordInText))
-    listOfWords.append(wordInText)
+    if len(text[keyOfDicts]) > 0:
+        countingWordsDictionary[keyOfDicts] = text[keyOfDicts]
+        countedWordsDictionary[keyOfDicts] = countingWordsDictionary[keyOfDicts]
 
-    if len(text) == len(listOfWords):
+        if str(countedWordsDictionary1.get((lastKey-1))) == str(countedWordsDictionary.get((lastKey+1))) and counter > 1:
+            countedWordsDictionary.clear()
+            countingWordsDictionary.clear()
+            continue
+        if str(countedWordsDictionary.get(keyOfDicts)) == str(countingWordsDictionary.get(keyOfDicts - 1)) \
+                and counter > 1:
+            countedWordsDictionary.pop(keyOfDicts)
+            lastKey = keyOfDicts
+            countedWordsDictionary1.update(countedWordsDictionary)
+            countingWordsDictionary.clear()
+            countedWordsDictionary.clear()
+            counter = 1
 
-        outputText = '{}: '.join([str(digit) for digit in sumOfWords])\
-            .format(*listOfWords)
+    counter += 1
 
-
-print(outputText)
+print(countingWordsDictionary, '\n', countedWordsDictionary, '\n', countedWordsDictionary1)
