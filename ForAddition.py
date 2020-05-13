@@ -49,31 +49,49 @@ for valueOfDict in dictionary:
 print('-------------------------------------------------------------')
 
 text.sort()
-countingWordsDictionary = {}
-countedWordsDictionary = {}
-countedWordsDictionary1 = {}
-counter = 1
+dictionaryForIfWordsIsEven = {}
+mediatedDictionaryBetweenOddWordsAndFinalOutput = {}
+finalOutputDictionary = {}
+bootCounterToEliminateTheException = 1
 lastKey = 0
 
-for keyOfDicts in range(1, len(text)):
+for keyOfValue in range(1, len(text)):
 
-    if len(text[keyOfDicts]) > 0:
-        countingWordsDictionary[keyOfDicts] = text[keyOfDicts]
-        countedWordsDictionary[keyOfDicts] = countingWordsDictionary[keyOfDicts]
+    if len(text[keyOfValue]) > 0:
 
-        if str(countedWordsDictionary1.get((lastKey-1))) == str(countedWordsDictionary.get((lastKey+1))) and counter > 1:
-            countedWordsDictionary.clear()
-            countingWordsDictionary.clear()
+        dictionaryForIfWordsIsEven[keyOfValue] = text[keyOfValue]
+        mediatedDictionaryBetweenOddWordsAndFinalOutput[keyOfValue] = dictionaryForIfWordsIsEven[keyOfValue]
+
+        if str(finalOutputDictionary.get(lastKey)) ==\
+                str(mediatedDictionaryBetweenOddWordsAndFinalOutput.get(keyOfValue)):
+
+            mediatedDictionaryBetweenOddWordsAndFinalOutput.clear()
+            dictionaryForIfWordsIsEven.clear()
+
+            lastKey = list(finalOutputDictionary.keys())[-1]
+            bootCounterToEliminateTheException += 1
             continue
-        if str(countedWordsDictionary.get(keyOfDicts)) == str(countingWordsDictionary.get(keyOfDicts - 1)) \
-                and counter > 1:
-            countedWordsDictionary.pop(keyOfDicts)
-            lastKey = keyOfDicts
-            countedWordsDictionary1.update(countedWordsDictionary)
-            countingWordsDictionary.clear()
-            countedWordsDictionary.clear()
-            counter = 1
 
-    counter += 1
+        if str(mediatedDictionaryBetweenOddWordsAndFinalOutput.get(keyOfValue)) ==\
+                str(dictionaryForIfWordsIsEven.get(keyOfValue - 1)) \
+                and bootCounterToEliminateTheException > 1:
 
-print(countingWordsDictionary, '\n', countedWordsDictionary, '\n', countedWordsDictionary1)
+            mediatedDictionaryBetweenOddWordsAndFinalOutput.pop(keyOfValue)
+            finalOutputDictionary.update(mediatedDictionaryBetweenOddWordsAndFinalOutput)
+
+            dictionaryForIfWordsIsEven.clear()
+            mediatedDictionaryBetweenOddWordsAndFinalOutput.clear()
+
+            lastKey = list(finalOutputDictionary.keys())[-1]
+            bootCounterToEliminateTheException = 1
+
+    bootCounterToEliminateTheException += 1
+
+else:
+    finalOutputDictionary.update(mediatedDictionaryBetweenOddWordsAndFinalOutput)
+    dictionaryForIfWordsIsEven.clear()
+    mediatedDictionaryBetweenOddWordsAndFinalOutput.clear()
+
+    print('Final output tuple from dictionary with keys and values pairs without repetition elements: ', '\n',
+          *finalOutputDictionary.items(), '\n'*2, 'The sum of key-value pairs: ', len(finalOutputDictionary))
+
