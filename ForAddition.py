@@ -20,7 +20,8 @@ print('Number:', '\t|| '.join([str(digit) for digit in
                                fibonacciNumbersList]))
 print('-------------------------------------------------------------')
 
-text = """Industrial Light & Magic: In this case, you find Python
+text = """
+Industrial Light & Magic: In this case, you find Python
 used in the production process for scripting complex,
 computer graphic-intensive films. Originally, Industrial
 Light & Magic relied on Unix shell scripting, but it was
