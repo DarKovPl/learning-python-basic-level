@@ -41,7 +41,7 @@ print('-----------------------------------------------------')
 
 print('Number: 5')
 print(line.find('p'))  # Różnica pomiędzy index a find: find jak nie znajdzie szukanego znaku
-                       # to zwraca wartość -1 a index error.
+# to zwraca wartość -1 a index error.
 print('-----------------------------------------------------')
 
 print('Number: 6')
@@ -75,10 +75,34 @@ print('-----------------------------------------------------')
 line = 'this is the end of this lesson'
 print(line.split(' '))
 
-list = line.split(' ')
-print(list)
+list1 = line.split(' ')
+print(list1)
 
-print(' '.join(list))
+print(' '.join(list1))
+print('-----------------------------------------------------')
 
 # Laboratory
 
+poem = '''1.Runą i w łunach spłoną pożarnych 
+Krzyże kościołów, krzyże ofiarne 
+I w bezpowrotnym zgubi się szlaku 
+W lechickiej ziemi Orzeł Polaków. 
+2.O, jasne słońce- wodzu Stalinie! 
+Niech sława twoja nigdy nie zginie 
+Niechaj jak orły powiedzie z gniazda 
+Rosja i z Kremla płonąca gwiazda. 
+3.Na ziemskim globie flagi czerwone 
+Będą na wiatrach grały jak dzwony 
+Czerwona Armia i wódz jej Stalin 
+Odwiecznych wrogów na zawsze obali! 
+4.Zaćmisz się rychło w czarnej godzinie 
+Polsko- Twe córy i syny, 
+Wiara i każdy krzyż na mogile, 
+U stóp am legą w prochu i pyle! '''.split('\n')
+
+lines = poem
+
+for each_line in range(8):
+
+    print(lines[each_line])
+    print(lines[each_line+8])
