@@ -24,7 +24,7 @@ print('-----------------------------------------------------------')
 #  Laboratory
 
 def days_to_new_year_eve():
-    # This functions is for counting days to New Year's Eve
+    # This functions is for counting days left to New Year's Eve
     from datetime import date
 
     days_to_left = date(2020, 12, 31) - date.today()
