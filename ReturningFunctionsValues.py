@@ -72,9 +72,9 @@ def print_animal(animal=''):
     return True
 
 
-print(print_animal('cat'))
+print_animal('cat')
 print('------------------------------------------------------------')
-print(print_animal())
+print_animal()
 print('------------------------------------------------------------')
 if print_animal('cat') is True:
     print('Animal true')
