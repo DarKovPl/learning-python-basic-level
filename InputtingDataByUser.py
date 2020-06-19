@@ -19,11 +19,9 @@ print('------------------------------------------------------------')
 def input_factor(factor_dict):
     factor_dict = {}
     for key in range(97, 100):
-        key_of_value = [chr(key)]
+        key_of_value = str(chr(key))
         factor = input('Please insert value of factor {0:s}: '.format(*key_of_value))
-        print(factor)
-        factor_dict.update(dict(zip(key_of_value, factor.join([str(digit) for digit in factor]))))
-    print(factor_dict)
+        factor_dict.update({key_of_value: ''.join(str(f) for f in factor)})
     return factor_dict
 
 
@@ -31,10 +29,17 @@ def check_int():
     assigned_factor = input_factor(factor_dict='')
 
     for value in assigned_factor.values():
-        if str(value).isdigit():
-            print(value)
 
-    return str(value).isdigit()
+        if value[0] == ('-' or '+'):
+            return value[1:].isdigit()
+
+        elif value[0].isdigit():
+            return value.isdigit()
+
+        else:
+            print('Is not float:')
+            break
+
 
 
 print(check_int())
