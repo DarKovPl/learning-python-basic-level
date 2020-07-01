@@ -1,3 +1,6 @@
+import re
+from math import sqrt
+
 # file_name = input('Enter file name: ')
 # print('The file name is: %s' % file_name)
 print('------------------------------------------------------------')
@@ -16,41 +19,76 @@ print('------------------------------------------------------------')
 
 #  Laboratory
 
-def input_factor(factor_dict):
+def input_factors():
     factor_dict = {}
 
     for key in range(97, 100):
         key_of_value = str(chr(key))
         factor = input('Please insert value of factor {0:s}: '.format(*key_of_value))
         factor_dict.update({key_of_value: ''.join(str(f) for f in factor)})
+
     return factor_dict
 
 
 def check_int():
+    factors = input_factors()
 
-    assigned_factor = input_factor(factor_dict={})
-    print(assigned_factor)
-    for key, value in assigned_factor.items():
-        print(len(value))
+    for key, value in factors.items():
 
-        if value.find('-' or '+', 0, len(value)):
+        if re.findall("[-+]", value):
 
-            if value.find('.' or ',', 0, len(value)):
-                continue
-            return value.isdigit()
+            if re.findall("[.,]", value):
+                return print('Coefficient "%s" is float. Please next time enter correct value of coefficient'
+                             % key), quit()
+            elif value[0] == '0':
+                return print('Factor "%s" equals zero. Fix it!' % key[0]), quit()
 
-        elif value.isdigit():
+            else:
+                if value[1:].isdigit():
+                    continue
+                else:
 
-            if value.find('.' or ',', 0, len(value)):
-                continue
-            return value.isdigit()
+                    return print('Factor "%s" in not a digit. Fix it!' % key), quit()
 
-        elif value.find('-' or '+', 0, len(value)) and value.find('.' or ',', 0, len(value)):
-            return print('Factor %s is float. Please next time enter correct value of factor'
-                         % key)
+        else:
+            if re.findall("[.,]", value):
+                return print('Coefficient "%s" is float. Please next time enter correct value of coefficient'
+                             % key), quit()
+            elif value[0] == '0':
+                return print('Factor "%s" equals zero. Fix it!' % key[0]), quit()
 
-        elif value.find('.' or ',', 0, len(value)):
-            return print('Factor %s is float. Please next time enter correct value of factor'
-                         % key)
+            else:
+                if value[0:].isdigit():
+                    continue
+                else:
+                    return print('Factor "%s" in not a digit. Fix it!' % key), quit()
 
-print(check_int())
+    checked_values = factors
+    print('Every inputted value is correct')
+    return checked_values
+
+
+def counting_delta_and_zero_of_function():
+    numerical_coefficients = check_int()
+
+    delta = pow(int(numerical_coefficients.get('b')), 2) - 4 * int(numerical_coefficients.get('a')) * \
+            int(numerical_coefficients.get('c'))
+    print(delta)
+
+    if delta < 0:
+
+        return print('Delta is below zero. There is no chance to count this'), quit()
+
+    elif delta == 0:
+
+        x_1 = ((-int(numerical_coefficients.get('b'))) - sqrt(delta)) / (2 * int(numerical_coefficients.get('a')))
+        return print(x_1), quit()
+
+    else:
+
+        x_1 = (-int(numerical_coefficients.get('b')) - sqrt(delta)) / (2 * int(numerical_coefficients.get('a')))
+        x_2 = (-int(numerical_coefficients.get('b')) + sqrt(delta)) / (2 * int(numerical_coefficients.get('a')))
+        return print('x_1= ', round(x_1, 2), '\n', 'x_2= ', round(x_2, 2))
+
+
+counting_delta_and_zero_of_function()
