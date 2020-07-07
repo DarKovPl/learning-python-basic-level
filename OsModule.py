@@ -37,16 +37,17 @@ if os.path.exists(file_path):
 
 # Laboratory
 
-def access_path(path, file):
+def access_path(path_to_dir, name_of_file):
     # This function takes from the user access path to the directory and the
     # name of the file and checks whether or not the full path is correct.
 
-    path_to_dir = path
-    name_of_file = file
-
+    # here we are checking whether the entered path to the directory is correct
     if os.path.isdir(path_to_dir):
+
+        # here is checking whether the entered file name is correct and the object is a file
         if os.path.isfile(path_to_dir + name_of_file):
-            return str(path_to_dir), str(name_of_file)
+            return path_to_dir, name_of_file
+
         else:
             print("Name of the file is incorrect or file doesn't exist")
             return quit()
@@ -58,10 +59,15 @@ def access_path(path, file):
 def information_of_file():
     # this function shows information about the file
 
-    full_path_to_file = access_path(path=input('Please type here the directory path:'),
-                                    file=input('Now please input the name of the file:'))
-    
-    print(time.localtime(os.path.getatime(full_path_to_file)))
+    #  here we are assigning the results of work "access_path" function to "full_path_to_file" variable
+    full_path_to_file = access_path(path_to_dir=input('Please type here the directory path:'),
+                                    name_of_file=input('Now please input the name of the file:'))
+
+    print('Date of latest modification in the file: ',
+          time.localtime(os.path.getmtime(''.join([str(element) for element in full_path_to_file]))))
+    print('Size of the file in bytes: ', os.path.getsize(''.join([str(element) for element in full_path_to_file])))
+    print('Current directory is: ', os.getcwd())
+    print('Relative path to the file is: ', os.path.relpath(''.join([str(element) for element in full_path_to_file])))
 
 
 information_of_file()
