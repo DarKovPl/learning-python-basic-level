@@ -29,9 +29,9 @@ if os.path.exists(file_path):
     print('\nFile size is: ', os.path.getsize(file_path))
     print('\nIs it a dir? ', os.path.isdir(file_path))
     print('\nIs it a file? ', os.path.isfile(file_path))
-    print('\nPath splitted: ', os.path.split(file_path))
+    print('\nPath split: ', os.path.split(file_path))
     print('\nOnly file name part: ', os.path.split(file_path)[1])
-    print('\nPath splitted into drive: ', os.path.splitdrive(file_path))
+    print('\nPath split into drive: ', os.path.splitdrive(file_path))
     print('Only drive: ', os.path.splitdrive(file_path)[0])
 
 
