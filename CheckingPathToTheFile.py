@@ -37,34 +37,55 @@ today = datetime.date.today()
 today_output_catalog = os.path.join(data_output_catalog, today.strftime("%Y-%m-%d"))
 today_input_catalog = os.path.join(data_input_catalog, today.strftime("%Y-%m-%d"))
 
+directory_or_file = ''
+
 yes = 'Y'
 
-if not os.path.isdir(data_input_catalog):
-    os.makedirs(today_input_catalog)
+if os.path.isfile(data_input_catalog):
+    shutil.rmtree(data_input_catalog)
+
+elif not os.path.isdir(data_input_catalog):
+    os.mkdir(data_input_catalog)
+
+
+if not os.path.isfile(today_input_catalog):
+    os.mknod(today_input_catalog)
 
 else:
-    if yes == input("This directory: %s is already existing, if you want to delete it,"
-                    " input 'y' here. ->: " % today_input_catalog).upper():
-        shutil.rmtree(os.path.split(today_input_catalog)[0])
-        print("Run the program again to create a new catalog with today's date.")
+    if os.path.isfile(today_input_catalog):
+        directory_or_file = 'file'
 
     else:
-        print("New catalog %s wasn't created because there was already a catalog with the same name,"
-              " and the old one wasn't deleted." % today_input_catalog)
+        directory_or_file = 'directory'
 
+    if directory_or_file == 'directory':
+        shutil.rmtree(os.path.split(today_input_catalog)[1])
+
+    elif directory_or_file == 'file' and \
+            yes == input("This %s: %s is already existing, if you want to delete it,"
+                         " input 'y' here. ->: " % (directory_or_file, today_input_catalog)).upper():
+        shutil.rmtree(os.path.split(today_input_catalog)[1])
+        print("Run the program again to create a correct structure catalogs with today's date.")
+
+    else:
+        print("New file %s wasn't created because there was already a %s with the same name,"
+              " and the old one wasn't deleted." % (today, directory_or_file))
 
 if not os.path.isdir(today_output_catalog):
     os.makedirs(today_output_catalog)
 
 else:
-    if yes == input("This directory: %s is already existing, if you want to delete it,"
-                    " input 'y' here. ->: " % today_output_catalog).upper():
-        shutil.rmtree(os.path.split(today_output_catalog)[0])
-        print("Run the program again to create a new catalog with today's date.")
+    if os.path.isfile(today_input_catalog):
+        directory_or_file = 'FILE'
 
     else:
-        print("New catalog %s wasn't created because there was already a catalog with the same name,"
-              " and the old one wasn't deleted." % today_output_catalog)
+        directory_or_file = 'directory'
 
-today_output_catalog = os.path.join(data_output_catalog, today.strftime("%Y-%m-%d"))
-is_input_catalog_ok = os.path.isdir(data_input_catalog)
+    if yes == input("This %s: %s is already existing, if you want to delete it,"
+                    " input 'y' here. ->: " % (directory_or_file, today_output_catalog)).upper():
+        shutil.rmtree(os.path.split(today_output_catalog)[0])
+        print("Run the program again to create a correct structure catalogs with today's date.")
+
+    else:
+        print("New catalog %s wasn't created because there was already a %s with the same name,"
+              " and the old one wasn't deleted." % (today_output_catalog, directory_or_file))
