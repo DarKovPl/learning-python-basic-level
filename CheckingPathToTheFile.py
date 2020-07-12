@@ -1,8 +1,9 @@
 import os
 import datetime
 import shutil
+import time
 
-file_is_ok = False
+# file_is_ok = False
 
 # while not file_is_ok:
 #
@@ -31,87 +32,109 @@ print('------------------------------------------------------------')
 # Laboratory
 
 
-data_output_catalog = r'/tmp/data_output'
 today = datetime.date.today()
-
-# today_output_catalog = os.path.join(data_output_catalog, today.strftime("%Y-%m-%d"))
-# today_input_catalog = os.path.join(data_input_catalog, today.strftime("%Y-%m-%d"))
-
-
-
+# today_output_file = os.path.join(data_output_catalog, today.strftime("%Y-%m-%d"))
 yes = 'Y'
 
 
 def input_tree_structure(data_input_catalog=r'/tmp/data_input'):
+    today_input_file = os.path.join(data_input_catalog, today.strftime("%Y-%m-%d"))
 
-    while not os.path.isdir(data_input_catalog):
+    while not (os.path.isdir(data_input_catalog) and os.path.isfile(today_input_file)):
 
         if os.path.isfile(data_input_catalog):
             os.remove(data_input_catalog)
             print('%s was a file, and it was deleted.' % data_input_catalog)
 
-        else:
+        elif os.path.isdir(today_input_file):
+            os.rmdir(today_input_file)
+            print('%s was a directory, and it was deleted.' % today_input_file)
+
+        elif not os.path.isdir(data_input_catalog):
             os.mkdir(data_input_catalog)
-            return print('Directory %s was successfully created' % data_input_catalog)
+            print('Directory %s was successfully created' % data_input_catalog)
 
-    if len(os.listdir(data_input_catalog)) == 0:
+        elif not os.path.isfile(today_input_file):
+            os.mknod(today_input_file)
+            print('File %s was successfully created' % today_input_file)
 
-        if yes == input("This empty catalog: %s is already existing if you want to delete it "
-                        "and create a new one with today's date type 'y' here ->: "
-                        % data_input_catalog).upper():
-            os.rmdir(data_input_catalog)
-            os.mkdir(data_input_catalog)
-            return print('The old directory was deleted and the new one was created: %s'
-                         % data_input_catalog)
 
-        else:
-            return print("New directory wasn't created because there was already directory (%s) with the same name, "
-                         " and the old one wasn't deleted." % data_input_catalog)
-
-    else:
-        print('%s is not empty.' % data_input_catalog)
-
-        if yes == input("If you want to delete it with its contents and a create new empty directory"
-                        " %s type 'y' here ->: " % data_input_catalog).upper():
-            shutil.rmtree(data_input_catalog)
-            os.mkdir(data_input_catalog)
-            return print('All elements and the old directory were deleted. New empty directory was created %s.'
-                         % data_input_catalog)
-
-        else:
-            return print('Nothing was deleted, and the structure is improper. Program ends work.')
+    # if len(os.listdir(data_input_catalog)) == 0:
+    #
+    #     if yes == input("This empty catalog: %s is already existing if you want to delete it "
+    #                     "and create a new one with today's date type 'y' here ->: "
+    #                     % data_input_catalog).upper():
+    #         os.rmdir(data_input_catalog)
+    #         os.mkdir(data_input_catalog)
+    #         return print('The old directory was deleted and the new one was created: %s'
+    #                      % data_input_catalog)
+    #
+    #     else:
+    #         return print("New directory wasn't created because there was already directory (%s) with the same name, "
+    #                      " and the old one wasn't deleted." % data_input_catalog)
+    #
+    # else:
+    #     print('%s is not empty.' % data_input_catalog)
+    #
+    #     if yes == input("If you want to delete it with its contents and a create new empty directory"
+    #                     " %s type 'y' here ->: " % data_input_catalog).upper():
+    #         shutil.rmtree(data_input_catalog)
+    #         os.mkdir(data_input_catalog)
+    #         return print('All elements and the old directory were deleted. New empty directory was created %s.'
+    #                      % data_input_catalog)
+    #
+    #     else:
+    #         create_time = time.ctime(os.path.getctime(data_input_catalog))
+    #         age_of_catalog = datetime.datetime.today() - datetime.datetime.fromtimestamp(
+    #             os.path.getctime(data_input_catalog))
+    #         return print('Nothing was deleted and you will be writing new log files into the old catalog. '
+    #                      'Catalog was created %s. The directory was created %.7s ago. ' % (create_time, age_of_catalog))
 
 
 input_tree_structure()
+print('------------------------------------------------------------')
 
-# if not os.path.isfile(today_input_catalog):
-#     os.mknod(today_input_catalog)
+# def output_tree_structure(data_output_catalog=r'/tmp/data_output'):
+#     while not os.path.isdir(data_output_catalog):
 #
-# else:
-#     if os.path.isfile(today_input_catalog):
-#         directory_or_file = 'file'
+#         if os.path.isfile(data_output_catalog):
+#             os.remove(data_output_catalog)
+#             print('%s was a file, and it was deleted.' % data_output_catalog)
 #
-#     else:
-#         directory_or_file = 'directory'
+#         else:
+#             os.mkdir(data_output_catalog)
+#             return print('Directory %s was successfully created' % data_output_catalog)
 #
-#     if directory_or_file == 'directory':
-#         shutil.rmtree(os.path.split(today_input_catalog)[1])
+#     if len(os.listdir(data_output_catalog)) == 0:
 #
-# if not os.path.isdir(today_output_catalog):
-#     os.makedirs(today_output_catalog)
+#         if yes == input("This empty catalog: %s is already existing if you want to delete it "
+#                         "and create a new one with today's date type 'y' here ->: "
+#                         % data_output_catalog).upper():
+#             os.rmdir(data_output_catalog)
+#             os.mkdir(data_output_catalog)
+#             return print('The old directory was deleted and the new one was created: %s'
+#                          % data_output_catalog)
 #
-# else:
-#     if os.path.isfile(today_input_catalog):
-#         directory_or_file = 'FILE'
-#
-#     else:
-#         directory_or_file = 'directory'
-#
-#     if yes == input("This %s: %s is already existing, if you want to delete it,"
-#                     " input 'y' here. ->: " % (directory_or_file, today_output_catalog)).upper():
-#         shutil.rmtree(os.path.split(today_output_catalog)[0])
-#         print("Run the program again to create a correct structure catalogs with today's date.")
+#         else:
+#             return print("New directory wasn't created because there was already directory (%s) with the same name, "
+#                          "and the old one wasn't deleted." % data_output_catalog)
 #
 #     else:
-#         print("New catalog %s wasn't created because there was already a %s with the same name,"
-#               " and the old one wasn't deleted." % (today_output_catalog, directory_or_file))
+#         print('%s is not empty.' % data_output_catalog)
+#
+#         if yes == input("If you want to delete it with its contents and a create new empty directory"
+#                         " %s type 'y' here ->: " % data_output_catalog).upper():
+#             shutil.rmtree(data_output_catalog)
+#             os.mkdir(data_output_catalog)
+#             return print('All elements and the old directory were deleted. New empty directory was created %s.'
+#                          % data_output_catalog)
+#
+#         else:
+#             create_time = time.ctime(os.path.getctime(data_output_catalog))
+#             age_of_catalog = datetime.datetime.today() - datetime.datetime.fromtimestamp(
+#                 os.path.getctime(data_output_catalog))
+#             return print('Nothing was deleted and you will be writing new log files into the old catalog. '
+#                          'Catalog was created %s. The directory was created %.7s ago. ' % (create_time, age_of_catalog))
+#
+#
+# output_tree_structure()
