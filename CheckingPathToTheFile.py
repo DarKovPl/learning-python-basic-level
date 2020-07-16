@@ -132,8 +132,7 @@ def output_tree_structure(set_export_hour=datetime.time(18, 59, 59)):
               % split_path_dir_out[1])
 
     # if you want to check it up, uncomment this part of code. Run the code again after one minute,
-    # and you get a message.
-
+    # and you get a message:
     # if str(catalog_age_out) > '0:01:00':
     #     print("30 days passed. You have to do a backup of data and clear the '%s' directory."
     #           % split_path_dir_out[1])
