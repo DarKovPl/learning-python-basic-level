@@ -16,7 +16,7 @@ A list of technologies used within the project:
 Examples of code:
 
     '''python
-    
+    # War Card Game with "War" rule in game
     war_pile_player_1 = []
     war_pile_player_2 = []
     
