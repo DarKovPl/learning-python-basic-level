@@ -13,9 +13,10 @@ A list of technologies used within the project:
 * [Python](https://www.python.org/downloads/release/python-360/): Version 3.6 
 ## Code Examples
 ***
+Link to file: https://github.com/DarKowPl/learning-python-basic-level/blob/master/05_Types:AdvancedInformation/138_LoopsCardGameWar.py
+
 Examples of code:
 
-Link to file: https://github.com/DarKowPl/learning-python-basic-level/blob/master/05_Types:AdvancedInformation/138_LoopsCardGameWar.py
     
     '''python
     # War Card Game with "War" rule in game
