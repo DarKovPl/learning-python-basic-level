@@ -4,7 +4,7 @@
 3. [Code Examples](#code-examples)
 ## General Info
 ***
-This repository has been used to learn the basics of Python.
+This repository shows the progress of learning Python programming.
 ## Screenshot
 ![Image text](https://www.python.org/static/community_logos/python-logo-master-v3-TM.png)
 ## Technologies
@@ -15,6 +15,8 @@ A list of technologies used within the project:
 ***
 Examples of code:
 
+Link to file: https://github.com/DarKowPl/learning-python-basic-level/blob/master/05_Types:AdvancedInformation/138_LoopsCardGameWar.py
+    
     '''python
     # War Card Game with "War" rule in game
     war_pile_player_1 = []
