@@ -10,15 +10,15 @@ This repository shows the progress of learning Python programming.
 ## Technologies
 ***
 A list of technologies used within the project:
-* [Python](https://www.python.org/downloads/release/python-360/): Version 3.6 
+* [Python](https://www.python.org/downloads/release/python-360/): Version 3.6.9 
 ## Code Examples
 ***
 Link to file: https://github.com/DarKowPl/learning-python-basic-level/blob/master/05_Types:AdvancedInformation/138_LoopsCardGameWar.py
 
 Examples of code:
 
-    
-    '''python
+
+```python
     
     # War Card Game with "War" rule in game
     
@@ -123,4 +123,4 @@ Examples of code:
     print('Currently Player_1 deck power: %d' % power_of_player_1_hand)
     print('\t', 'Currently Player_2 deck power: %d' % power_of_player_2_hand)
     print('{0:s} won the game in {1:d} rounds'.format(winner, amount_of_rounds))
-    ```
+```
