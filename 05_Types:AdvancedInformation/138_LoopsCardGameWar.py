@@ -42,7 +42,7 @@ winner = ''
 #     else:
 #         player_2.append(all_cards[card])
 #
-# while len(player_1) and len(player_2) > 0:
+# while len(player_1) > 0 and len(player_2) > 0:
 #
 #     power_of_player_1_hand = 0
 #     power_of_player_2_hand = 0
@@ -125,7 +125,7 @@ for card in range(len(all_cards)):
     else:
         player_2.append(all_cards[card])
 
-while len(player_1) and len(player_2) >= 1:
+while len(player_1) >= 1 and len(player_2) >= 1:
 
     power_of_player_1_hand = 0
     power_of_player_2_hand = 0
@@ -163,7 +163,7 @@ while len(player_1) and len(player_2) >= 1:
         player_1.insert(len(player_1), card_1.pop())
         player_1.insert(len(player_1), card_2.pop())
 
-        if len(war_pile_player_1) and len(war_pile_player_2) > 0:
+        if len(war_pile_player_1) > 0 and len(war_pile_player_2) > 0:
 
             for war_pile_element in range(len(war_pile_player_1)):
                 player_1.insert(len(player_1), war_pile_player_1.pop(0))
@@ -174,7 +174,7 @@ while len(player_1) and len(player_2) >= 1:
         player_2.insert(len(player_2), card_1.pop())
         player_2.insert(len(player_2), card_2.pop())
 
-        if len(war_pile_player_1) and len(war_pile_player_2) > 0:
+        if len(war_pile_player_1) > 0 and len(war_pile_player_2) > 0:
 
             for war_pile_element in range(len(war_pile_player_1)):
                 player_2.insert(len(player_2), war_pile_player_1.pop(0))
@@ -186,7 +186,7 @@ while len(player_1) and len(player_2) >= 1:
         war_pile_player_1.append(card_1.pop(0))
         war_pile_player_2.append(card_2.pop(0))
 
-        if len(player_1) and len(player_2) >= 1:
+        if len(player_1) >= 1 and len(player_2) >= 1:
             war_pile_player_1.append(player_1.pop(0))
             war_pile_player_2.append(player_2.pop(0))
             amount_of_rounds -= 1
