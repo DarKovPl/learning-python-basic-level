@@ -19,7 +19,7 @@ Examples of code:
 
 
 ```python
-    
+    import random
     # War Card Game with "War" rule in game
     
     war_pile_player_1 = []
@@ -42,7 +42,7 @@ Examples of code:
         else:
             player_2.append(all_cards[card])
     
-    while len(player_1) and len(player_2) >= 1:
+    while len(player_1) >= 1 and len(player_2) >= 1:
     
         power_of_player_1_hand = 0
         power_of_player_2_hand = 0
@@ -80,7 +80,7 @@ Examples of code:
             player_1.insert(len(player_1), card_1.pop())
             player_1.insert(len(player_1), card_2.pop())
     
-            if len(war_pile_player_1) and len(war_pile_player_2) > 0:
+            if len(war_pile_player_1) > 0 and len(war_pile_player_2) > 0:
     
                 for war_pile_element in range(len(war_pile_player_1)):
                     player_1.insert(len(player_1), war_pile_player_1.pop(0))
@@ -91,7 +91,7 @@ Examples of code:
             player_2.insert(len(player_2), card_1.pop())
             player_2.insert(len(player_2), card_2.pop())
     
-            if len(war_pile_player_1) and len(war_pile_player_2) > 0:
+            if len(war_pile_player_1) > 0 and len(war_pile_player_2) > 0:
     
                 for war_pile_element in range(len(war_pile_player_1)):
                     player_2.insert(len(player_2), war_pile_player_1.pop(0))
